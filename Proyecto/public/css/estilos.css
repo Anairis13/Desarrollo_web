@@ -1,0 +1,15 @@
+#diseno{
+    background-image: url(../img/fondo1.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size:cover;
+}
+#contenedor{
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
