@@ -8,8 +8,34 @@
 #contenedor{
     background-color: #fff;
     border-radius: 5px;
-    padding: 40px;
-    margin-left: auto;
-    margin-right: auto;
+    padding: 30px;
+    /* margin-left: auto;
+    margin-right: auto; */
+    overflow: hidden;
+    position: absolute;
+    /* height: 400px;
+    width: 500px; */
+    left: 50%;
+    top: 50%;
+    margin-top: 100px;
+    margin-left: -280px;
     
 }
+#imagen{
+    height: 65px;
+    display:block;
+    margin:auto;
+    margin-bottom:20px;
+}
+
+.detalles{
+    margin-bottom:10px;
+    height: 100%;
+    width: 100%;
+    
+}
+.tamano{
+    height: 40px;
+    
+}
+
