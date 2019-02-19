@@ -1,35 +1,22 @@
-/* #diseno{
-    background-image: url(../img/fondo_in2.jpg);
+#diseno{
+    /* background-image: url(../img/fondo1.png); */
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: center center;
     background-attachment: fixed;
     background-size:cover;
-
-} */
-.boton_di:hover {
-    background-color:#0431B4;
-}
-
-#boton{
-    background-color: #0080FF;
-    color: #fff;
 }
 #contenedor{
-    background-color: #fff;
+    background-color:#D8D8D8;
     border-radius: 5px;
     padding: 30px;
-    /* margin-left: auto;
-    margin-right: auto; */
     overflow: hidden;
     position: absolute;
-    /* height: 400px;
-    width: 500px; */
-    left: 29%;
+    left: 30%;
     top: 50%;
-    right: 29%;
+    right: 30%;
     margin-top: 100px;
+    margin-bottom: 100px;
     /* margin-left: -280px; */
-    box-shadow: 2px 2px 10px #666;
     
 }
 #imagen{
@@ -49,4 +36,3 @@
     height: 40px;
     
 }
-
