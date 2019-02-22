@@ -1,0 +1,120 @@
+.detalles{
+    margin-bottom:10px;
+    height: 100%;
+    width: 100%;
+    
+}
+.tamano{
+    height: 40px;
+    
+}
+.figura{
+    margin-right:8px;
+}
+
+.barra {
+    background-color: #0F1629;
+    width: 100% !important;
+    height: 100% !important;
+}
+a:not([href]):not([tabindex]) {
+    color: #F95534 !important;
+}
+.tamano{
+    height: calc(1em + 0.75rem + 2px) !important;
+}
+.tamano1{
+    height: calc(1em + 1rem + 1px) !important;
+}
+.btn-outline-success {
+    color: #FA5526 !important;
+    border-color: #FA5526 !important;
+}
+.btn-outline-success:not(:disabled):not(.disabled):active, .btn-outline-success:not(:disabled):not(.disabled).active, .show > .btn-outline-success.dropdown-toggle {
+    color: #fff !important;
+    background-color:#F95534 !important;
+    border-color: #F95534 !important;
+}
+.btn-outline-success:hover {
+    color: #fff !important;
+    background-color: #F95534 !important;
+}
+.btn-outline-success:focus, .btn-outline-success.focus {
+    box-shadow: 0 0 0 0.2rem #072b52 !important;
+}
+footer{
+   border-top: 1px solid rgba(50, 50, 50, 0.3);
+   width: 100%;
+   clear: both; /*para que el footer siempre este abajo del contenido*/
+   margin-top: 0px;
+   padding-top: 0px;
+   overflow: visible;
+   /* top:93%;  */
+   bottom: 0%;
+   position: fixed;
+ }
+  
+ #footer .copyright {
+     text-align: center;
+     padding-top: 30px;
+    }
+ #footer .credits {
+     text-align: center;
+     font-size: 13px;
+     color: #555;
+ }
+ .abajo{
+     padding-bottom: 30px;
+ }
+ footer{
+     background-color: #F2F5F8;
+ }    
+#barra_izquierda{
+     float: left;
+     width: 100%;
+     min-height: 100%;
+     background-color: #F2F5F8;
+ }
+
+@media (max-width: 	540px) {
+    #barra_izquierda{
+    float: left;
+    width: 35%;
+    min-height: 480px;
+    background-color: #F2F5F8;
+}
+}
+ /* #AA9874 */
+ #imagen{
+    height: 80px;
+    display:block;
+    margin:auto;
+    margin-bottom:10px;
+    margin-top: 5%;
+}
+.icono{
+    height: 25px;
+    margin:auto;
+    /* margin-bottom:10px; */
+}
+
+.posicion{
+    margin-top: 15%;
+}
+
+.letra{
+    color:#212529;
+    
+}
+a.nounderline:link 
+{ 
+text-decoration:none; 
+}  
+
+/* #tarjeta{
+    background-color: 
+} */
+/* .tamano1{
+    width: 50%;
+    height: 50%;
+} */

@@ -1,18 +1,19 @@
-/* #diseno{
-    background-image: url(../img/fondo_in2.jpg);
+#diseno{
+    background-color: #F6F6F6;
+    /* background-image: url(../img/fondo1.png);
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
-    background-size:cover;
+    background-size:cover; */
 
-} */
-.boton_di:hover {
-    background-color:#0431B4;
 }
 
 #boton{
-    background-color: #0080FF;
+    background-color: #0F1629;
     color: #fff;
+}
+.efecto:hover{
+    background-color:#015249;
 }
 #contenedor{
     background-color: #fff;
@@ -22,11 +23,11 @@
     margin-right: auto; */
     overflow: hidden;
     position: absolute;
-    /* height: 400px;
-    width: 500px; */
-    left: 29%;
-    top: 50%;
-    right: 29%;
+    height: 400px;
+    width: 500px;
+    /* left: 29%;
+    top: 50%; */
+    right: 30%;
     margin-top: 100px;
     /* margin-left: -280px; */
     box-shadow: 2px 2px 10px #666;
@@ -48,5 +49,8 @@
 .tamano{
     height: 40px;
     
+}
+.figura{
+    margin-right:8px;
 }
 
