@@ -1,3 +1,6 @@
+html,body { 
+    overflow:hidden; 
+  }
 .detalles{
     margin-bottom:10px;
     height: 100%;
@@ -11,14 +14,20 @@
 .figura{
     margin-right:8px;
 }
-
+#barra{
+    
+    position: sticky;
+    top: 0; 
+    z-index: 1007;
+}
 .barra {
-    background-color: #0F1629;
-    width: 100% !important;
+    background-color: rgb(10, 25, 60);
+    /* width: 100% !important;
     height: 100% !important;
+     */
 }
 a:not([href]):not([tabindex]) {
-    color: #F95534 !important;
+    color: rgb(249, 85, 52) !important;
 }
 .tamano{
     height: calc(1em + 0.75rem + 2px) !important;
@@ -56,15 +65,15 @@ footer{
   
  #footer .copyright {
      text-align: center;
-     padding-top: 30px;
+     padding-top: 15px;
     }
  #footer .credits {
      text-align: center;
-     font-size: 13px;
+     font-size: 9px;
      color: #555;
  }
  .abajo{
-     padding-bottom: 30px;
+     padding-bottom: 15px;
  }
  footer{
      background-color: #F2F5F8;
@@ -73,18 +82,18 @@ footer{
      float: left;
      width: 100%;
      min-height: 100%;
-     background-color: #F2F5F8;
- }
+     background-color: #E6EBF1;
+     color: #fff;
+     box-shadow: 2px 2px 10px #666;
+          /* opacity: 1.5; */
+      
 
-@media (max-width: 	540px) {
-    #barra_izquierda{
-    float: left;
-    width: 35%;
-    min-height: 480px;
-    background-color: #F2F5F8;
-}
-}
- /* #AA9874 */
+ }
+ #barra_izquierda{
+    background: url("../img/barra1.jpg")no-repeat;
+ }
+ 
+
  #imagen{
     height: 80px;
     display:block;
@@ -97,24 +106,130 @@ footer{
     margin:auto;
     /* margin-bottom:10px; */
 }
+#archivo{
+    height: 75px;
+    margin:auto;
+    /* margin-bottom:10px; */
+}
 
 .posicion{
     margin-top: 15%;
 }
 
 .letra{
-    color:#212529;
+    color: #000;
     
+}
+#linea{
+    border-top: 1px solid currentColor !important;
 }
 a.nounderline:link 
 { 
 text-decoration:none; 
 }  
 
-/* #tarjeta{
-    background-color: 
-} */
-/* .tamano1{
-    width: 50%;
-    height: 50%;
-} */
+.contorno{
+    border: 1px solid;
+    display: flex;
+    border-radius: 5px;
+}
+
+#principal{
+    overflow:scroll;
+    height: -webkit-fill-available; 
+    padding-bottom: 8%;
+    /* min-width: 100%; */
+    
+}
+#archivo{
+    display: flex;
+}
+#texto{
+    text-align: center;
+}
+.cuadro{
+    top: 10px;border-radius: 5%;margin-right: 15px;
+                        margin-bottom: 10px;
+}
+.arriba{
+    margin-top: 3%;
+}
+@media only screen and (max-width: 	768px) {
+    #barra_izquierda{
+       display: none;
+    }
+    #oculto{
+        display: block !important;
+        margin-top: 3%;
+        margin-left: 20%;    
+    }
+
+    body{
+        overflow:scroll;  
+    }
+    .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+      }
+      dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+      .letra{
+          color: #000;
+      }
+            
+      .dropdown:hover .dropdown-content {display: block;}
+      
+}
+@media only screen and (max-width: 	650px) {
+    #barra_izquierda{
+       display: none;
+    }
+    #oculto{
+        display: block !important;
+        margin-top: 3%;
+        margin-left: 20%;    
+    }
+
+    body{
+        overflow:scroll;  
+    }
+    .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+      }
+      dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+            
+      .dropdown:hover .dropdown-content {display: block;}
+      
+}
+
+#img_cuadro{
+    margin-top: 28%;
+    margin-left: 10px;
+
+}

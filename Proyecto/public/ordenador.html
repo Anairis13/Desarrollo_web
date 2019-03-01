@@ -13,72 +13,161 @@
 
 <body id="diseno">
 <!-- Encabezado -->
-<nav class="navbar navbar-light barra">
-    <a class="navbar-brand">Emilia</a>
+<nav class="navbar navbar-light barra" id="barra">
+   <spam><p><a class="navbar-brand ">Emilia</a></p></spam>
+    <button class="btn btn-outline-success my-2 my-sm-0s" type="button">Cerrar sesion</button>
 </nav>
 
 <!-- Barra lateral izquierda -->
 <div class="row">
-    <div class="col-lg-2 col-md-12 col-12">
-    <div id="barra_izquierda">
-            <div>
+    <!-- Barra lateral izquierda oculta-->
+    <div class="col-lg-2 col-md-3 col-xs-4"> 
+        <div id="barra_izquierda">
+            <!-- <div>
                 <img src="img/logoV10_fondo _transparente.png" id="imagen">
-            </div>
-            <!-- <hr> -->
+            </div> -->
+            <!-- #0B1A3E -->
             <div class="container posicion">
                 <a href="#" class="letra nounderline"><p><span> <i class="fas fa-user"></i> Perfil de Usuario</span></p></a>
-                <a href="#" class="letra nounderline"><p><span> <i class="fas fa-align-justify"></i> Mis Archivos</span></p></a> 
+                <a href="#" class="letra nounderline"><p><span> <i class="fas fa-folder-open"></i> Mis Archivos</span></p></a> 
                 <a href="#" class="letra nounderline"><p><span> <i class="fas fa-user-friends"></i> Compartidos</span></p></a>
                 <hr>
-                <a href="#" class="letra nounderline"><p><span> <img src="img/icono_proyecto3.png" class="icono"> Nuevo Proyecto</span></p></a>     
+                <a href="#" class="letra nounderline"><p><span> <i class="fas fa-laptop"></i> Nuevo Proyecto</span></p></a>
+                <!-- <div id="img_cuadro">
+                    <img src="img/barra.png">
+                </div>    
+                  -->
             </div>
-        </div>    
-</div>
-<!-- Marco Teorico/ tarjeta de los iconos -->
-<div class="container" >
-    <div class="row">
-        <div class="col-lg-3" id="tarjeta">
-            <img src="img/folder.png">
-        </div>
-        <div class="col-lg-3" id="tarjeta">
-                <img src="img/folder.png">
-        </div>
-        <div class="col-lg-3" id="tarjeta">
-                <img src="img/folder.png">
-        </div>
-        <div class="col-lg-3" id="tarjeta">
-                <img src="img/folder.png">
-        </div>
-        <div class="col-lg-3" id="tarjeta">
-                <img src="img/folder.png">
-        </div>
-        <div class="col-lg-3" id="tarjeta">
-                <img src="img/folder.png">
-        </div>
-        <div class="col-lg-3" id="tarjeta">
-            <img src="img/folder.png">
-        </div>
-        <div class="col-lg-3" id="tarjeta">
-                <img src="img/folder.png">
-        </div>
-        <div class="col-lg-3" id="tarjeta">
-                <img src="img/folder.png">
-        </div>
-        <div class="col-lg-3" id="tarjeta">
-                <img src="img/folder.png">
-        </div>
-        <div class="col-lg-3" id="tarjeta">
-                <img src="img/folder.png">
-        </div>
-        <div class="col-lg-3" id="tarjeta">
-                <img src="img/folder.png">
-        </div>
-    
-</div>
+            
+        </div> 
+    </div>  
+    <!-- fin de barra lateral izquierda -->
+
+        <!-- Marco central/ tarjeta de los iconos -->    
+    <div class="col-lg-10 col-md-9 col-xs-2  " >
+        <div id="principal" style="margin-left:5%" >
+            <div class="container">
+                <div class="row"> 
+                <div class="col-xs-6"> 
+                    <h3 class="arriba">Archivos y Carpetas</h3>
+                </div>
+                <!-- boton aculto -->
+                <div style="display:none" id="oculto" class="col-xs-6">
+                    <div class="dropdown">
+                            <button class="dropbtn form-control"><i class="fas fa-bars"></i></button>
+                            <div class="dropdown-content" style="right:0;">
+                                <div class="container" style="    margin-top: 5px;">
+                                     <!-- <ul> -->
+                                <a href="#" class="letra nounderline"><p><span> <i class="fas fa-user"></i> Perfil </span></p></a>
+                                <a href="#" class="letra nounderline"><p><span> <i class="fas fa-folder-open"></i> Archivos</span></p></a> 
+                                <a href="#" class="letra nounderline"><p><span> <i class="fas fa-user-friends"></i> Compartidos</span></p></a>
+                                <a href="#" class="letra nounderline"><p><span> <i class="fas fa-laptop"></i> Crear Proyecto</span></p></a>
+                                <!-- </ul> -->
+                                </div>
+                               
+                            </div>
+                        </div>
+                </div>
+                </div>      
+                <!-- termina boton oculto -->  
+                <hr>
+                <!-- <i class="fas fa-bars"></i> -->
+
+                <div class="row">
+                    <!-- Tarjeta donde va la imagen -->
+                            <div class="row cuadro">  <!--//class contorno para ponerle cuadro en el Div-->
+                            <div class="col-lg-12">
+                                <img src="img/C_W.png" id="archivo">
+                            </div>
+                            <div class="col-lg-12" id="texto">
+                                    <h6>NOMBRE</h6>
+                            </div>
+                        </div>       
+                    <!-- hasta aqui termina el div de las imagenes -->
+                    <!-- varias imagnes -->
+                        <div class="row cuadro">
+                            <div class="col-lg-12">
+                                <img src="img/C_W.png" id="archivo">
+                            </div>
+                            <div class="col-lg-12" id="texto">
+                                    <h6>NOMBRE</h6>
+                            </div>
+                        </div>       
+                        <div class="row cuadro ">
+                            <div class="col-lg-12">
+                                <img src="img/C_W.png" id="archivo">
+                            </div>
+                            <div class="col-lg-12" id="texto">
+                                    <h6>NOMBRE</h6>
+                            </div>
+                        </div>       
+                        <!-- </div> -->
+                        <!-- <div class="col-lg-2 cuadro"> -->
+                        <div class="row cuadro">
+                            <div class="col-lg-12">
+                                <img src="img/C_W.png" id="archivo">
+                            </div>
+                            <div class="col-lg-12" id="texto">
+                                    <h6>NOMBRE</h6>
+                            </div>
+                        </div>       
+                        <!-- </div> -->
+                        <!-- <div class="col-lg-2 cuadro"> -->
+                        <div class="row cuadro">
+                                <div class="col-lg-12">
+                                    <img src="img/C_W.png" id="archivo">
+                                </div>
+                                <div class="col-lg-12" id="texto">
+                                        <h6>NOMBRE</h6>
+                                </div>
+                            </div>       
+                        <!-- </div> -->
+                        <!-- <div class="col-lg-2 cuadro">  -->
+                            <div class="row cuadro">
+                                <div class="col-lg-12">
+                                    <img src="img/C_W.png" id="archivo">
+                                </div>
+                                <div class="col-lg-12" id="texto">
+                                        <h6>NOMBRE</h6>
+                                </div>
+                            </div>       
+                                <!-- </div> -->
+                            <div class="row cuadro">
+                                    <div class="col-lg-12">
+                                        <img src="img/C_W.png" id="archivo">
+                                    </div>
+                                    <div class="col-lg-12" id="texto">
+                                            <h6>NOMBRE</h6>
+                                    </div>
+                                </div>    
+                            <div class="row cuadro">
+                                    <div class="col-lg-12">
+                                        <img src="img/C_W.png" id="archivo">
+                                    </div>
+                                    <div class="col-lg-12" id="texto">
+                                            <h6>NOMBRE</h6>
+                                    </div>
+                                </div> 
+                            <div class="row cuadro">
+                                    <div class="col-lg-12">
+                                        <img src="img/C_W.png" id="archivo">
+                                    </div>
+                                    <div class="col-lg-12" id="texto">
+                                            <h6>NOMBRE</h6>
+                                    </div>
+                                </div>   
+                                
+                </div>
+            </div>
+            </div> 
+        </div>   
+</div> 
+
+</div>    
 </div>
 </head>
 <!-- Pie de Pagina -->
-<footer id="footer">
+<!-- <footer id="footer">
         <div class="container abajo">
                 <div class="copyright">
                   &copy; Copyright <strong>Ana Iris</strong>. All Rights Reserved
@@ -90,10 +179,19 @@
                     </div>
                 </div>
         </div>
-</footer>
+</footer> -->
 
 
 <script src="js/jquery-3.3.1.min.js"> </script>
-<script src="js/bootstrap.min.js"></script> 
+<script src="js/bootstrap.min.js"></script>
+<script>
+// function obtenerAlto(alto) {
+//   return alto;
+// }
+// var resultado= obtenerAlto ($( window ).height());
+// // console.log(resultado);
+	
+$('#barra').Stickyfill();
+</script> 
 </body>
 </html>
