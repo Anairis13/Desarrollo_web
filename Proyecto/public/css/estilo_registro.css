@@ -1,5 +1,11 @@
 #diseno{
     background-color: #F6F6F6;
+        background: url("../img/5.jpg");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+        background-size:cover;
+
 }
 #boton{
     background-color: #0F1629;
@@ -21,7 +27,8 @@
     -webkit-transform: translate(-50%, -50%);
     border-radius: 5px;
     padding: 30px;
-    box-shadow: 2px 2px 10px #666;    
+    box-shadow: 2px 2px 10px #666;
+    color: #fff;    
 }
 #imagen{
     height: 65px;
