@@ -5,9 +5,7 @@
     background-attachment: fixed;
     background-size:cover;
 }
-html,body { 
-    overflow:hidden; 
-  }
+
 .detalles{
     margin-bottom:10px;
     height: 100%;
