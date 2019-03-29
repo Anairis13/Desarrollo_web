@@ -22,3 +22,22 @@
     </div>`;
 }
 })();
+
+$(document).bind("contextmenu", function(e){  
+    return false;
+});
+
+$("#principal").mousedown(function(e) {			
+    if (e.button == 2){
+        $("#menuCapa").css("top", e.pageY - 20);
+        $("#menuCapa").css("left", e.pageX - 20);
+        $("#menuCapa").show('fast');			
+    }else{
+        $("#menuCapa").hide('fast');
+    }
+});
+
+
+
+
+
