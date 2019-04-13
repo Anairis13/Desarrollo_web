@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" /> <!--Poder utilizar caracteres especiales-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link REL=StyleSheet HREF="css/estilo_registro.css" TYPE="text/css" MEDIA=screen>
+    <link REL=StyleSheet HREF="css/bootstrap.css" TYPE="text/css" MEDIA=screen> 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    
+</head>
+
+<body id="diseno" class="fondo">
+<!------------------------------------------------- Encabezado ----------------------------------------------------->
+<!-- ------------------------------------------------------------------------------------------------------------ -->
+<nav class="navbar barra" id="barra">
+    <a class="navbar-brand">Emilia</a>
+    <button class="btn btn-outline-success" type="submit">Iniciar sesion</button>
+</nav>
+
+<!-------------------------------------------------- Contenedor ----------------------------------------------------->
+<!-- ------------------------------------------------------------------------------------------------------------- -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 col-md-8 col-xs-6 col-12 " id="contenedor">
+                <a href="index.html">  
+                        <img src="img/logoV10_fondo _transparente.png" id="imagen">
+                </a>
+                <h3 id="letra">Registrarse</h3>
+                <hr>
+                <form id="formulario">   
+                    <input type="text" name="nombre" placeholder="Ingrese su nombre" class="detalles form-control">
+                    <input type="text" name="apellido" placeholder="Ingrese su apellido" class="detalles form-control">
+                    <input type="email" name="correo" placeholder="Ingrese su correo" class="detalles form-control" >
+                    <input type="password" name="ccontrasena" placeholder="Contraseña" class="detalles form-control">
+                    <i class="fas fa-exclamation-triangle">verifique campos vacios </i>
+                </form> 
+                <button  id="btn-registrar" class="detalles form-control efecto">Registrar</button>              
+            </div>     
+
+    </div>
+</div>
+<!-------------------------------------------------- Pie de Pagina --------------------------------------------------->
+<!-- -------------------------------------------------------------------------------------------------------------- -->
+<!-- <footer id="footer">
+        <div class="container abajo">
+                <div class="copyright">
+                  &copy; Copyright <strong>Ana Iris</strong>. All Rights Reserved
+                </div>
+                <div class="credits">
+                    <div class="credits">
+
+                    I-PAC-2019 <a href="https://bootstrapmade.com/">Desarrollo web</a>
+                    </div>
+                </div>
+        </div>
+</footer>  -->
+
+<script src="js/jquery-3.3.1.min.js"> </script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/controlador-registro.js" ></script> 
+     
+</body>
