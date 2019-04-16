@@ -17,9 +17,11 @@
                         <spam><a href="index.html">   
                             <img src="img/logoV10_fondo _transparente.png" id="imagen"> 
                         </a></spam>
-                        <input type="email" id="email"  value=" " placeholder="Ingrese su correo" class="form-control detalles">
-                        <input type="password" id="password" placeholder="Contraseña" class="detalles form-control">
-                        <button type="button" class="form-control botones" id="boton" onclick="registros()">Iniciar Sesion</button>
+                        <form id="formulario">
+                        <input type="correo" id="email"  name="correo"  placeholder="Ingrese su correo" class="form-control detalles">
+                        <input type="contrasena" id="password" name="contrasena" placeholder="Contraseña" class="detalles form-control">
+                        </form>
+                        <button type="button" class="form-control botones" id="btn-login">Iniciar Sesion</button>
                         <a href="registro.html"><h6>¿Desea Registrarse?</h6></a>
                         <hr>
                         <h6>Iniciar sesion mediante red social:</h6>
@@ -37,6 +39,9 @@
     </div>
 </div>
 </div>
+
+<script src="js/jquery-3.3.1.min.js"> </script>
+<script src="js/bootstrap.min.js"></script>
 <script src="js/controlador_login.js"></script>
 </body>
 </html>

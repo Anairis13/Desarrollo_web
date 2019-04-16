@@ -31,8 +31,9 @@
             </div> -->
             <div class="container posicion">
                 <button type="button" class="letra botonDiseno" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-user"></i> Perfil de Usuario</button>
-                <button type="button" class="letra botonDiseno"><i class="fas fa-folder-open"></i> Mis Archivos </button>
-                <button type="button" class="letra botonDiseno"><i class="fas fa-user-friends"></i> Compartidos </button>
+                <button type="button" id="btn-archivos" class="letra botonDiseno"><i class="fas fa-folder-open"></i> Mis Archivos </button>
+                <button type="button" id="btn-proyectos" class="letra botonDiseno"><i class="fas fa-code"></i> Mis proyectos </button>
+                <button type="button" id="btn-compartido" class="letra botonDiseno"><i class="fas fa-user-friends"></i> Compartidos </button>
                 <button type="button" class="letra botonDiseno" data-toggle="modal" data-target="#planes"><i class="fas fa-dollar-sign"></i> Planes</button>
                 <hr>
                 <a href="editor.html" class="letra nounderline color"><p><span> <i class="fas fa-laptop"></i> Nuevo Proyecto</span></p></a>
@@ -73,13 +74,13 @@
     <!------------------------------------------------------------ termina boton oculto ------------------------------------------------------------------------------------------------------------------------------------->
     <!-- ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
                 <hr>
-    <!---------------------------------------------------------- Tarjeta donde va la carpeta ---------------------------------------------------------------------------------------------------------------------------------->
+    <!---------------------------------------------------------- Tarjeta donde va la carpetas ---------------------------------------------------------------------------------------------------------------------------------->
     <!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ -->
                 <div class="row" id="tarjetas">
                     
                 </div>
      
-    <!------------------------------------------------------ hasta aqui termina el div de las carpeta ------------------------------------------------------------------------------------------------------------------------>
+    <!------------------------------------------------------ hasta aqui termina el div de las carpetas ------------------------------------------------------------------------------------------------------------------------>
     <!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->            
             </div>
             </div> 
@@ -99,10 +100,25 @@
           </button>
         </div>
         <div class="modal-body">
-         <div>
+            <div>            
             <img src="img/usuario.png" alt="" class="imgRedonda">
+            <a id="actFoto"><i class="fas fa-edit" style="float:right; margin-top: -20px;"></i></a>
+            
+            <form id="foto" method="post" action="" enctype="multipart/form-data" style="display:none">        
+              <input name="imagen" type="file" accept=".jpg, .jpeg, .png"/>
+            </form>
+            <div id="guardarFoto" style="display:none">
+                <a id="gbFoto"><i class="far fa-save" style="float:right; margin-top: -20px"></i></a>
+            </div>
+           
          </div>
+         <!-- <div className="btn btn-secondary btn-sm">
+           <label for="profile">imagen</label>
+           <input className="inputFile" type="file" id="profile" name="profile" accept=".jpg, .jpeg, .png"/>
+
+         </div> -->
          <hr>
+          <form id="formulario2">
          <div class="row">
            <div class="col-lg-6">
               <h6 class="separacion">Nombre: </h6>
@@ -110,17 +126,17 @@
               <h6 class="separacion"> Correo: </h6>
               <h6 class="separacion"> Contraseña:</h6>
            </div>
-           <div class="col-lg-6">
-              <h6 class="separacion">Ana Iris Padilla </h6>
-              <h6 class="separacion">@AnaPadilla </h6>
-              <h6 class="separacion">anairispadilla38@gmail.com</h6>
-              <h6 class="separacion">*********</h6>
+          
+           <div class="col-lg-6" id="actualizar">
+              
             </div>
          </div>
         </div>
+      </form>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary">Guardar</button>
+          
+          <button id="btn-actPerfil" type="button">Actualizar</button>
+          <button type="button" data-dismiss="modal">Cerrar</button>
         </div>
       </div>
     </div>
@@ -140,34 +156,50 @@
         <div class="modal-body">
           <div class="row">
             <div class="col-lg-4">
-              <div class="row">
-                <div class="col-lg-12">
-                    <img src="img/usuario.png" alt="" class="imgRedonda1">
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. </p>
-                </div>
-              </div>   
+              <!-- <div class="row"> -->
+                <!-- <div class="col-lg-12"> -->
+                    <div class="card w-35">
+                        <div class="card-body">
+                          <h5 class="card-title">Card title</h5>
+                          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                          <a href="#" class="btn btn-primary">Button</a>
+                        </div>
+                      </div>
+                    
+                <!-- </div> -->
+              <!-- </div>    -->
             </div>
             <div class="col-lg-4">
-                <div class="row">
-                  <div class="col-lg-12">
-                      <img src="img/usuario.png" alt="" class="imgRedonda1">
-                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. </p>
-                  </div>
-                </div>   
+                <!-- <div class="row"> -->
+                  <!-- <div class="col-lg-12"> -->
+                      <div class="card w-35">
+                          <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <a href="#" class="btn btn-primary">Button</a>
+                          </div>
+                        </div>
+                  <!-- </div> -->
+                <!-- </div>    -->
               </div>
               <div class="col-lg-4">
-                  <div class="row">
-                    <div class="col-lg-12">
-                        <img src="img/usuario.png" alt="" class="imgRedonda1">
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-                    </div>
-                  </div>   
+                  <!-- <div class="row"> -->
+                    <!-- <div class="col-lg-12"> -->
+                        <div class="card w-35">
+                        <div class="card-body">
+                          <h5 class="card-title">Card title</h5>
+                          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                          <a href="#" class="btn btn-primary">Button</a>
+                        </div>
+                      </div>
+                    <!-- </div> -->
+                  <!-- </div>    -->
                 </div>
           </div>
          </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary">Guardar</button>
+          <!-- <button type="button" class="btn btn-primary">Guardar</button> -->
         </div>
       </div>
     </div>
@@ -203,4 +235,9 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/controlador_ordenador.js" ></script> 
 </body>
-</html>
+<!-- 
+
+<form enctype="multipart/form-data" action="uploader.php" method="POST">
+  <input name="uploadedfile" type="file" />
+  <input type="submit" value="Subir archivo" />
+  </form> -->

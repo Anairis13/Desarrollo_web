@@ -1,6 +1,13 @@
 var express = require ("express");
 var router = express.Router();
+var flash = require("connect-flash");
+var passport = require("passport");
+
+
 var usuario = require("../models/usuario");
+// const User = require('../models/usuario');
+
+ 
 
 //obtener todos los usuarios
 router.get("/",function(req,res){
@@ -26,7 +33,7 @@ router.get("/:id", function(req,res){
 });
 
 //peticion para guardar
-router.post("/", function(req, res){
+router.post('/singup', function(req, res){
     var user= new usuario({
         nombre:req.body.nombre,
         apellido:req.body.apellido,
@@ -82,4 +89,15 @@ router.delete("/:id", function(req, res){
 
 });
 
+
+router.post('/signin', passport.authenticate('local', {
+    failureFlash: true
+  }));
+
+
+
 module.exports =router;
+
+// successRedirect: '/notes',
+    // failureRedirect: '/users/signin',
+    // failureFlash: true
