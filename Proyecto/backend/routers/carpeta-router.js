@@ -7,7 +7,7 @@ var carpeta = require("../models/carpeta");
 
 
 router.get("/",function(req,res){
-    carpetas.find()
+    carpeta.find()
     .then(data=>{
         res.send(data);
     })
@@ -17,7 +17,7 @@ router.get("/",function(req,res){
 });
 
 router.delete("/:id",function(req,res){
-    carpetas.find({_id:req.params.id})
+    carpeta.remove({_id:req.params.id})
     .then(data=>{
         res.send(data);
     })
@@ -33,9 +33,8 @@ router.post('/', function(req, res){
         usuarioCreador:{
             _id: req.body.usuarioCreador
         },
-        carpetaPadre:{
-           _id: req.body.carpetaPadre
-        }
+        carpetaPadre: req.body.carpetaPadre
+        
     });
 
     console.log(JSON.stringify({
@@ -79,7 +78,7 @@ router.put('/:id', function(req, res){
 
 });
 router.get("/:id",function(req,res){
-    archivo.remove({_id:req.params.id})
+    carpeta.find({_id:req.params.id})
     .then(data=>{
         res.send(data);
     })

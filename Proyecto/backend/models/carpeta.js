@@ -5,7 +5,8 @@ var esquema = new mongoose.Schema(
         nombre  : String,
         fecha: Date,
         usuarioCreador: mongoose.Schema.Types.Mixed,
-        carpetaPadre: mongoose.Schema.Types.Mixed       
+        carpetaPadre: String,
+        estado: Boolean       
     }
 );
 

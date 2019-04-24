@@ -20,7 +20,7 @@ $("#btn-registrar").click(function(){
      
   
         var parametros = $("#formulario").serialize();      
-        // console.log("llenos");
+        console.log(parametros);
         $.ajax({
             url:"http://localhost:3334/usuarios/singup",
                 method:"post",

@@ -119,6 +119,9 @@ footer{
     height: 75px;
     margin:auto;
     /* margin-bottom:10px; */
+    margin-top: 8px;
+    margin-right: 0;
+    
 }
 
 .posicion{
@@ -148,6 +151,7 @@ text-decoration:none;
     height: -webkit-fill-available; 
     padding-bottom: 8%;
     /* min-width: 100%; */
+    margin-left: 20px;
     
 }
 #archivo{
@@ -157,8 +161,11 @@ text-decoration:none;
     text-align: center;
 }
 .cuadro{
-    top: 10px;border-radius: 5%;margin-right: 15px;
-                        margin-bottom: 10px;
+    top: 10px;
+    border-radius: 5%;
+    margin-right: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #E5E5E5;
 }
 .arriba{
     margin-top: 3%;
@@ -201,6 +208,53 @@ text-decoration:none;
       .dropdown:hover .dropdown-content {display: block;}
       
 }
+
+
+
+@media only screen and (min-width: 	769px) {
+   
+    .dropdown1 {
+        position: relative;
+        display: inline-block;
+      }
+      .dropdown-content1 {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+      }
+      dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+      .letra{
+          color: #000;
+      }
+            
+      .dropdown1:hover .dropdown-content1 {display: block;}
+      
+}
+
+.Dinamico{
+    float:right;
+     /* margin-bottom: 5px; */
+    border-radius: 15% !important; 
+    /* padding-bottom: 10px; */
+}
+
+.botonDinamico{
+    border-radius: 50% !important; 
+    border-color: #FFF !important;
+    bottom: 14px;  
+}
+
+
+
+
 @media only screen and (max-width: 	650px) {
     #barra_izquierda{
        display: none;
@@ -271,9 +325,10 @@ text-decoration:none;
     background:#FFFFFF;
     border:2px solid #F0F0F0;
     filter:alpha(Opacity=80);
-    -khtml-opacity:0.8;
-    -moz-opacity:0.8;
-    opacity:0.8;
+    box-shadow: 2px 2px 2px #666;
+    /* -khtml-opacity:0.8; */
+    /* -moz-opacity:0.8; */
+    /* opacity:0.95; */
     padding: 5px !important;
     }
 
@@ -303,3 +358,40 @@ text-decoration:none;
     width: 70% !important;
     margin-left: 15px !important;
  }
+
+.nombre{
+    text-align: center;
+    margin-top: 5px;
+}
+.imagenP{
+    margin-top: 8px;
+    margin-right: 0;
+}
+
+.ruta{
+       
+        margin-top: 1.5%;
+        border: 1px solid #E5E5E5;
+        border-radius: 5px;
+        background-color: #f3f3f3c7;
+        padding: 3px;
+}
+.ruta:hover{
+    border: 1px solid #E5E5E5;
+    background-color: #eae7e7c7;
+ 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

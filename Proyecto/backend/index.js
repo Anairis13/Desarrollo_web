@@ -7,7 +7,7 @@ var database = require("./modules/database.js");
 // var LocalStrategy = require('passport-local').Strategy;
 var usuarioRouter= require('./routers/usuario-router');
 var carpetaRouter = require("./routers/carpeta-router");
-var carpetaRouter = require("./routers/archivo-router");
+var archivoRouter = require("./routers/archivo-router");
 
 var cors = require("cors");
 var app= express();
@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use("/usuarios",usuarioRouter);
 app.use("/carpetas", carpetaRouter);
-app.use("/archivos", carpetaRouter);
+app.use("/archivos", archivoRouter);
 
 // mmiddlewares
 // app.use(session({
