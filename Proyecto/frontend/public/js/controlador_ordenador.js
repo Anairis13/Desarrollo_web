@@ -83,7 +83,7 @@ $("#btn-proyectos").click( function(){
 
 function agregarCarpeta(){
     $.ajax({
-        url:"http://localhost:3334/carpetas",
+        url:"/carpetas",
         method: "GET",
         dataType:"json",
         success: function(res){
@@ -105,7 +105,7 @@ function agregarCarpeta(){
 
 function agregarArchivos(){    
     $.ajax({
-        url:"http://localhost:3334/archivos",
+        url:"/archivos",
         method: "GET",
         dataType:"json",
         success: function(res){
@@ -127,7 +127,7 @@ function agregarArchivos(){
 function perfil(){
     $.ajax({
         method:"GET",
-        url: "http://localhost:3334/usuarios/"+ idUsuario,
+        url: "/usuarios/"+ idUsuario,
         datatype: "JSON",
         success: function(res){
             for (var i = 0; i < res.length; i++) {
@@ -154,7 +154,7 @@ $("#btn-guardarCar").click(function(){
 
     }else if(idCarpeta == 0){
         $.ajax({
-            url:"http://localhost:3334/carpetas",
+            url:"/carpetas",
             method: "Post",
             data: data, 
             dataType:"json",               
@@ -176,7 +176,7 @@ $("#btn-guardarCar").click(function(){
     }else{
         console.log(idCarpeta); 
         $.ajax({
-            url:"http://localhost:3334/carpetas",
+            url:"/carpetas",
             method: "Post",
             data: data + "&carpetaPadre="+ idCarpeta, 
             dataType:"json",               
@@ -223,7 +223,7 @@ $("#btn-guardarArc").click(function(){
         }
     if(idCarpeta==0){
         $.ajax({
-            url:"http://localhost:3334/archivos",
+            url:"/archivos",
             method: "Post",
             data: data +"&extencion="+extencion+"&imagen="+imagen, 
             dataType:"json",               
@@ -242,7 +242,7 @@ $("#btn-guardarArc").click(function(){
 
     }else{
         $.ajax({
-            url:"http://localhost:3334/archivos",
+            url:"/archivos",
             method: "Post",
             data: data +"&extencion="+extencion+"&imagen="+imagen +"&carpetaPadre="+idCarpeta, 
             dataType:"json",               
@@ -268,14 +268,14 @@ function abrirCarpeta(id) {
     ruta.push(id)
     document.getElementById('raiz').innerHTML="";
     $.ajax({
-        url:"http://localhost:3334/carpetas",
+        url:"/carpetas",
         method: "Get",
         dataType:"Json",
         success: function(res){           
             for (var i = 0; i < res.length; i++) {
                 if(res[i]._id==id){
-                    document.getElementById("ruta").innerHTML+=`
-                     ${res[i].nombre}/
+                    document.getElementById("ruta").innerHTML+=
+                    `<span id="${res[i].fecha}">${res[i].nombre}/</span>
                     `; 
                     // ruta.push(res[i]);
                 }
@@ -289,7 +289,7 @@ function abrirCarpeta(id) {
         } 
     })
     $.ajax({
-        url:"http://localhost:3334/archivos",
+        url:"/archivos",
         method: "Get",
         dataType:"Json",
         success: function(res){           
@@ -314,7 +314,7 @@ function buscarEliminar(id){
   console.log(padre);
 
 $.ajax({
-url:"http://localhost:3334/archivos",
+url:"/archivos",
 method: "Get",
 dataType:"Json",
 success: function(res){
@@ -333,7 +333,7 @@ error:function(res){
 }
 })  
 $.ajax({
-    url:"http://localhost:3334/carpetas",
+    url:"/carpetas",
     method: "Get",
     dataType:"Json",
     success: function(res){
@@ -358,7 +358,7 @@ function eliminarArchivos(listaArchivos){
     // console.log(listaEliminar);
     for (var i = 0; i < listaArchivos.length; i++) {
         $.ajax({
-            url:"http://localhost:3334/archivos/" + listaArchivos[i],
+            url:"/archivos/" + listaArchivos[i],
             method: "Delete",
             dataType:"Json",
             success: function(res){
@@ -374,7 +374,7 @@ function eliminarCarpetas(listaCarpetas,padre){
     // console.log(listaEliminar);
     for (var i = 0; i < listaCarpetas.length; i++) {
         $.ajax({
-            url:"http://localhost:3334/carpetas/" + listaCarpetas[i],
+            url:"/carpetas/" + listaCarpetas[i],
             method: "Delete",
             dataType:"Json",
             success: function(res){
@@ -391,7 +391,7 @@ function eliminarCarpetas(listaCarpetas,padre){
 
 function eliminarArc(idArchivo){
     $.ajax({
-        url:"http://localhost:3334/archivos/" + idArchivo,
+        url:"/archivos/" + idArchivo,
         method: "Delete",
         dataType:"Json",
         success: function(res){
@@ -408,25 +408,32 @@ function atras(){
     // console.log(ruta);
     document.getElementById('raiz').innerHTML="";
     if(!(ruta==0)){
+        var ultimo = ruta[ruta.length-1];
+        console.log(ultimo)
         ruta.pop();
         //  for (var i = 0; i < ruta.length; i++) {            
             $.ajax({
-                url:"http://localhost:3334/carpetas" ,
+                url:"/carpetas" ,
                 method: "Get",
                 dataType:"Json",
-                success: function(res){           
-                    for (var i = 0; i < res.length; i++) {
+                success: function(res){
+                    for (var i = 0; i < res.length; i++) { 
+                        if (!(ultimo==0)) {                      
+                         if(res[i]._id==ultimo){
+                            document.getElementById(res[i].fecha).remove();
+                        }}
                         if (res[i]._id == ruta[ruta.length-1]) {                
                            divCarpeta(res[i]);
                         }
                     }
+                    
                 },
                 error:function(res){
                     console.log(res)
                 } 
             })
             $.ajax({
-                url:"http://localhost:3334/archivos",
+                url:"/archivos",
                 method: "Get",
                 dataType:"Json",
                 success: function(res){           
@@ -444,7 +451,8 @@ function atras(){
         // }
         
     }
-    if(ruta==0){       
+    if(ruta==0){  
+        document.getElementById("ruta").innerHTML="";     
         agregarArchivos();
         agregarCarpeta();
     }
