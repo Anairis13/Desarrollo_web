@@ -7,8 +7,11 @@ var esquema = new mongoose.Schema(
         correo : String,
         contrasena : String,
         foto : Buffer,
-        carpetasCompartido: mongoose.Schema.Types.Mixed,
-        archivosCompartido: mongoose.Schema.Types.Mixed
+        tipoPlan: String,
+        codigoCV: Number,
+        numeroCuenta: Number,
+        carpetasCompartida: Array,
+        archivosCompartida: Array
         
     }
 );

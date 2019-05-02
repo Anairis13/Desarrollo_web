@@ -1,7 +1,5 @@
 var express = require ("express");
 var router = express.Router();
-// var flash = require("connect-flash");
-// var passport = require("passport");
 
 var carpeta = require("../models/carpeta");
 
@@ -39,9 +37,7 @@ router.post('/', function(req, res){
     var c = new carpeta({
         nombre:req.body.nombre,
         fecha: new(Date),
-        usuarioCreador:{
-            _id: req.body.usuarioCreador
-        },
+        usuarioCreador:req.body.usuarioCreador,
         carpetaPadre: req.body.carpetaPadre
         
     });
@@ -49,12 +45,9 @@ router.post('/', function(req, res){
     console.log(JSON.stringify({
         nombre:req.body.nombre,
         fecha: new(Date),
-        usuarioCreador:{
-            _id: req.body.usuarioCreador
-        },
-        carpetaPadre:{
-           _id: req.body.carpeta
-        }
+        usuarioCreador: req.body.usuarioCreador,
+        carpetaPadre: req.body.carpetaPadre
+        
     }));
 
     c.save()
@@ -70,13 +63,9 @@ router.post('/', function(req, res){
 router.put('/:id', function(req, res){
     carpeta.update({
         _id:req.params.id},{
-            nombre:req.body.nombre,
-        usuarioCreador:{
-            _id: req.body.usuarioCreador
-        },
-        carpetaPadre:{
-           _id: req.body.carpetaPadre
-        }
+        nombre:req.body.nombre,
+        usuarioCreador:req.body.usuarioCreador,
+        carpetaPadre:req.body.carpetaPadre
         }).then(result=>{
         res.send(result);
         })

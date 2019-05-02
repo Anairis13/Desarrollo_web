@@ -15,28 +15,45 @@
 <!--------------------------------------------------- Encabezado ----------------------------------------------------------------------------------------------------------------------------------------------------->
 <!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
-<nav class="navbar barra fixed-top " id="barra">
+<nav class="navbar barra fixed-top " id="barra" style="width: 100%">
    <a class="navbar-brand ">Emilia</a>
-    <button class="btn btn-outline-success" type="submit">Cerrar sesion</button>
+
+   <!-- -------------------------------------------------boton oculto-------------------------------------------------------- -->
+   <div style="display:none" id="oculto" class="col-xs-6">
+      <div class="dropdown">
+         <button class="dropbtn form-control"><i class="fas fa-bars"></i></button>
+         <div class="dropdown-content" style="right:0;">
+             <div class="container" >
+                 <a href="#" class="letra nounderline"  data-toggle="modal" data-target="#exampleModal"><p><span> <i class="fas fa-user"></i> Perfil </span></p></a>
+                 <a href="#" class="letra nounderline"><p><span> <i class="fas fa-folder-open"></i> Archivos</span></p></a> 
+                 <a href="#" class="letra nounderline"><p><span> <i class="fas fa-user-friends"></i> Compartidos</span></p></a>
+                 <a href="#" class="letra nounderline"><p><span> <i class="fas fa-laptop"></i> Crear Proyecto</span></p></a>
+             </div>
+         </div>
+     </div>
+ </div>
+<!-- -----------------------------------------------------fin del boton oculto------------------------------------------------>
+</div>   
+    <button class="btn btn-outline-success" id="cerrar" type="button">Cerrar sesion</button>
 </nav>
 
 <!-------------------------------------------- Barra lateral izquierda -------------------------------------------------------------------------------------------------------------------------------------------------->
 <!-- ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
-<div class="row">
+<div class="row ">
       <div class="col-lg-2 col-md-3 col-xs-4"> 
         <div id="barra_izquierda">
-            <!-- <div>
-                <img src="img/logoV10_fondo _transparente.png" id="imagen">
-            </div> -->
-            <div class="container posicion">
+
+            <div class="container posicion" style="margin-top:45px">
                 <button type="button" class="letra botonDiseno" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-user"></i> Perfil de Usuario</button>
                 <a href="ordenador.html"><button type="button" id="btn-archivos" class="letra botonDiseno"><i class="fas fa-folder-open"></i> Mis Archivos </button></a>
-                <button type="button" id="btn-proyectos" class="letra botonDiseno"><i class="fas fa-code"></i> Mis proyectos </button>
-                <button type="button" id="btn-compartido" class="letra botonDiseno"><i class="fas fa-user-friends"></i> Compartidos </button>
-                <button type="button" class="letra botonDiseno" data-toggle="modal" data-target="#planes"><i class="fas fa-dollar-sign"></i> Planes</button>
+                <!-- <button type="button" id="btn-proyectos" class="letra botonDiseno"><i class="fas fa-code"></i> Mis proyectos </button> -->
+                <button type="button" id="compartidos" class="letra botonDiseno"><i class="fas fa-user-friends"></i> Compartidos </button>
                 <hr>
-                <a href="editor.html" class="letra nounderline color"><p><span> <i class="fas fa-laptop"></i> Nuevo Proyecto</span></p></a>
+                <button type="button" class="letra botonDiseno" data-toggle="modal" data-target="#planes"><i class="fas fa-dollar-sign"></i> Planes</button>
+           </div>
+           <div id="imagen1">
+             <img src="../img/b1.jpg" >
            </div>  
     </div> 
     </div>  
@@ -51,45 +68,32 @@
          
             <!-- <div class="container"> -->
                 <div class="row"> 
-                <div class="col-4"> 
-                    <h3 class="arriba">Archivos y Carpetas </h3>                   
+                <div class="col-4" > 
+                    <h3 class="arriba" id="titulo">Archivos y Carpetas </h3>                   
                 </div>
-                <div class="col-6 ruta" > 
+                <div class="col-6 ruta" id="rruta"> 
                     <span onclick="atras()"><i class="fas fa-angle-double-left" style="color:#0a193c"> </i> / </span><span id="ruta"></span> 
                    
                     <!-- <span ></span>                     -->
                 </div>
                 <!-- <div id ="alerta">
 
-                </div> -->                
-    <!---------------------------------------------------------- boton aculto---------------------------------------------------------------------------------------------------------------------------------------------->
-    <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
-                    <div style="display:none" id="oculto" class="col-xs-6">
-                         <div class="dropdown">
-                            <button class="dropbtn form-control"><i class="fas fa-bars"></i></button>
-                            <div class="dropdown-content" style="right:0;">
-                                <div class="container" >
-                                    <a href="#" class="letra nounderline"  data-toggle="modal" data-target="#exampleModal"><p><span> <i class="fas fa-user"></i> Perfil </span></p></a>
-                                    <a href="#" class="letra nounderline"><p><span> <i class="fas fa-folder-open"></i> Archivos</span></p></a> 
-                                    <a href="#" class="letra nounderline"><p><span> <i class="fas fa-user-friends"></i> Compartidos</span></p></a>
-                                    <a href="#" class="letra nounderline"><p><span> <i class="fas fa-laptop"></i> Crear Proyecto</span></p></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>      
-                <!-- <div class="alert alert-danger" >
-                    <button class="close" data-dismiss="alert"><span>&times;</span></button>
-                     Alerta
-                </div> -->
+                </div>                 -->
+    
     <!------------------------------------------------------------ termina boton oculto ------------------------------------------------------------------------------------------------------------------------------------->
     <!-- ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
-                <hr>
+                
+          </div>
+              <hr>
     <!---------------------------------------------------------- Tarjeta donde va la carpetas ---------------------------------------------------------------------------------------------------------------------------------->
                  <div class="row">
                     <div class="col-lg-12" >
                         <div class="row" id="raiz"> 
                          
+                            
+
+
+
                       </div>
                  </div>
     <!------------------------------------------------------ hasta aqui termina el div de las carpetas ------------------------------------------------------------------------------------------------------------------------>
@@ -115,13 +119,13 @@
             <img src="img/usuario.png" alt="" class="imgRedonda">
             <a id="actFoto"><i class="fas fa-edit" style="float:right; margin-top: -20px;"></i></a>
             
-            <form id="foto" method="post" action="" enctype="multipart/form-data" style="display:none">        
-              <input name="imagen" type="file" accept=".jpg, .jpeg, .png"/>
+            <form id="foto" method="post" action="/imagenes/imagenes" enctype="multipart/form-data" style="display:none">        
+              <input  type="file" name="archivo" accept=".jpg, .jpeg, .png"/>
             </form>
             <div id="guardarFoto" style="display:none">
-                <a id="gbFoto"><i class="far fa-save" style="float:right; margin-top: -20px"></i></a>
+                <button type="submit" id="gbFoto"><i class="far fa-save" style="float:right; margin-top: -20px"></i></button>
             </div>
-           
+          
          </div>
          
          <hr>
@@ -155,56 +159,44 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Planes</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Planes de Suscripcion</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
           <div class="row">
-            <div class="col-lg-4">
-              <!-- <div class="row"> -->
-                <!-- <div class="col-lg-12"> -->
-                    <div class="card w-35">
-                        <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                          <a href="#" class="btn btn-primary">Button</a>
-                        </div>
-                      </div>
-                    
-                <!-- </div> -->
-              <!-- </div>    -->
+            <div class="col-12" id="plan">
+             
             </div>
-            <div class="col-lg-4">
-                <!-- <div class="row"> -->
-                  <!-- <div class="col-lg-12"> -->
-                      <div class="card w-35">
-                          <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            <a href="#" class="btn btn-primary">Button</a>
-                          </div>
-                        </div>
-                  <!-- </div> -->
-                <!-- </div>    -->
-              </div>
-              <div class="col-lg-4">
-                  <!-- <div class="row"> -->
-                    <!-- <div class="col-lg-12"> -->
-                        <div class="card w-35">
-                        <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                          <a href="#" class="btn btn-primary">Button</a>
-                        </div>
-                      </div>
-                    <!-- </div> -->
-                  <!-- </div>    -->
+
+          </div>
+          <div class="row">
+            <div class="col-12" id="tarjetaPlan">
+              <div class="card" style="width: 18rem; margin: 0 auto;">
+                  <div class="card-body">
+                    <h5 class="card-title">Premiun</h5>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item" style="background-color: #1C5A83; color: #fff" ><i class="fas fa-check"></i> Cuenta de Suscripcion </li>
+                      <li class="list-group-item" style="background-color: #1C5A83; color: #fff"><i class="fas fa-check"></i> Crear Carpetas y Archivos</li>
+                      <li class="list-group-item" style="background-color: #1C5A83; color: #fff "><i class="fas fa-check"></i> Crear Proyectos sin Limites</li>
+                      
+                    </ul>
+                    <a href="#" class="card-link list-group-item" id="comprar">Comprar</a>
+                  </ul>
+                  <input type="text" class="form-control" id="numeroCuenta" placeholder="Numero de cuenta" style="display:none">
+                  <input type="text" class="form-control" id="CV" placeholder="CV" style="display:none"> 
                 </div>
+            </div>
+            
+            
+            
           </div>
          </div>
         <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" id="btn-aceptar" style="display:none">Aceptar</button>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
         </div>
       </div>
@@ -226,18 +218,47 @@
       <div class="row" id="nombreArchivo" style="display:none">
         <input type="text" id="txt-nombre" class="inputOculto" placeholder="Nombre">
         <button id="btn-guardarArc"><i class="far fa-save iconos"></i></button>
-    </div>
-      
+    </div>     
     </li>
     <hr>        
     <li role="presentation">
-      <a role="menuitem" tabindex="-1" href="editor.html" class="letra"><i class="fas fa-laptop"></i>Nuevo Proyecto </a>
+      <a role="menuitem" tabindex="-1" href="#" id="nuevoProyecto" class="letra"><i class="fas fa-laptop"></i>Nuevo Proyecto </a>
+      <div class="row" id="nombreProyecto" style="display:none">
+          <input type="text" id="txt-proyecto" class="inputOculto" placeholder="Nombre">
+          <button id="btn-guardarPc"><i class="far fa-save iconos"></i></button>
+      </div>
     </li>
   </ul>
 </form>
 <!-- --------------------------------------------------------------------------------------------------------------------- -->
+<!-- -----------------------------------------------modal------------------------------------------------------------------- -->
+<!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button> -->
 
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Compartir</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+         </div>
+      <div class="modal-body">
+        <select name="" id="cmp-usuarios" class="form-control">
+          <option value="">--Seleccione el Usuario--</option>
+        </select>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-default" id="btn-compartir">Compartir</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+
+  </div>
+</div>
 <script src="js/jquery-3.3.1.min.js"> </script>
 <script src="js/bootstrap.min.js"></script>
+<script src="js/push.min.js"></script>
 <script src="js/controlador_ordenador.js" ></script> 
 </body>

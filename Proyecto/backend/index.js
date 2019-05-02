@@ -1,6 +1,6 @@
 var express = require("express");
 var bodyParser = require("body-parser");
-var session = require("express-session");
+// var session = require("express-session");
 var database = require("./modules/database.js");
 // var flash = require("connect-flash");
 // var passport= require("passport");

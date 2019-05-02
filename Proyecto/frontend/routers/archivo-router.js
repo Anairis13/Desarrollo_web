@@ -39,25 +39,23 @@ router.post('/', function(req, res){
     var a = new archivo({
         nombre:req.body.nombre,
         fecha: new(Date),
-        usuarioCreador:{
-            _id: req.body.usuarioCreador
-        },
+        usuarioCreador:req.body.usuarioCreador,
         carpetaPadre:req.body.carpetaPadre,
         extencion:req.body.extencion,
-        imagen:req.body.imagen
+        imagen:req.body.imagen,
+        codigoProyecto:req.body.codigoProyecto,
+        contenido:req.body.contenido
     });
 
     console.log(JSON.stringify({
         nombre:req.body.nombre,
         fecha: new(Date),
-        usuarioCreador:{
-            _id: req.body.usuarioCreador
-        },
-        carpetaPadre:{
-           _id: req.body.carpetaPadre
-        },
+        usuarioCreador:req.body.usuarioCreador,
+        carpetaPadre:req.body.carpetaPadre,
         extencion:req.body.extencion,
-        imagen:req.body.imagen
+        imagen:req.body.imagen,
+        codigoProyecto:req.body.codigoProyecto,
+        contenido:req.body.contenido
     }));
 
     a.save()
@@ -74,15 +72,13 @@ router.post('/', function(req, res){
 router.put('/:id', function(req, res){
     carpeta.update({
         _id:req.params.id},{
-            nombre:req.body.nombre,
-        usuarioCreador:{
-            _id: req.body.usuarioCreador
-        },
-        carpetaPadre:{
-           _id: req.body.carpetaPadre
-        },
+        nombre:req.body.nombre,
+        usuarioCreador:req.body.usuarioCreador,
+        carpetaPadre:req.body.carpetaPadre,
         extencion: req.body.extencion,
-        imagen:req.body.imagen
+        imagen:req.body.imagen,
+        codigoProyecto:req.body.codigoProyecto,
+        contenido:req.body.contenido
         }).then(result=>{
         res.send(result);
         })

@@ -18,8 +18,9 @@
                             <img src="img/logoV10_fondo _transparente.png" id="imagen"> 
                         </a></spam>
                         <form id="formulario">
-                        <input type="correo" id="email"  name="correo"  placeholder="Ingrese su correo" class="form-control detalles">
-                        <input type="contrasena" id="password" name="contrasena" placeholder="Contraseña" class="detalles form-control">
+                        <input type="email" id="email"  name="correo"  placeholder="Ingrese su correo" class="form-control detalles">
+                        <input type="password" id="password" name="contrasena" placeholder="Contraseña" class="detalles form-control">
+                        <i class="fas fa-exclamation-triangle" id="advertencia" style="display:none">verifique campos vacios </i>
                         </form>
                         <button type="button" class="form-control botones" id="btn-login">Iniciar Sesion</button>
                         <a href="registro.html"><h6>¿Desea Registrarse?</h6></a>
@@ -42,6 +43,7 @@
 
 <script src="js/jquery-3.3.1.min.js"> </script>
 <script src="js/bootstrap.min.js"></script>
+<script src="js/push.min.js"></script>
 <script src="js/controlador_login.js"></script>
 </body>
 </html>

@@ -18,17 +18,17 @@ $("#btn-registrar").click(function(){
          
      }
      
-  
+        var plan= "gratis";
         var parametros = $("#formulario").serialize();      
         console.log(parametros);
         $.ajax({
-            url:"http://localhost:3334/usuarios/singup",
+            url:"/usuarios/singup",
                 method:"post",
-                data: parametros,
+                data: parametros+ "&tipoPlan="+ plan,
                 dataType: "json",
                 success: function(res){
                     limpiarFormulario();
-                    window.location = 'ordenador.html';
+                    window.location = 'login.html';
                     console.log("registro guardado")
                 },
                 error: function(error){

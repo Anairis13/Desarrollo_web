@@ -4,10 +4,12 @@ var esquema = new mongoose.Schema(
     {
         nombre  : String,
         fecha: Date,
-        usuarioCreador: mongoose.Schema.Types.Mixed,
+        usuarioCreador: String,
         carpetaPadre: String,
         extencion: Number,
-        imagen: String       
+        imagen: String,
+        codigoProyecto: String,
+        contenido:String       
     }
 );
 
