@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" /> <!--Poder utilizar caracteres especiales-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ordenador</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link REL=StyleSheet HREF="css/style_ordenador.css" TYPE="text/css" MEDIA=screen>
+    <link REL=StyleSheet HREF="css/bootstrap.min.css" TYPE="text/css" MEDIA=screen>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    
+</head>
+
+<body id="diseno">
+<!--------------------------------------------------- Encabezado ----------------------------------------------------------------------------------------------------------------------------------------------------->
+<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<nav class="navbar barra fixed-top " id="barra">
+   <a class="navbar-brand ">{{Titulo}}</a>
+    <button class="btn btn-outline-success" type="submit">Cerrar sesion</button>
+</nav>
+
+<!-------------------------------------------- Barra lateral izquierda -------------------------------------------------------------------------------------------------------------------------------------------------->
+<!-- ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<div class="row">
+      <div class="col-lg-2 col-md-3 col-xs-4"> 
+        <div id="barra_izquierda">
+            <!-- <div>
+                <img src="img/logoV10_fondo _transparente.png" id="imagen">
+            </div> -->
+            <div class="container posicion">
+                <button type="button" class="letra botonDiseno" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-user"></i> Perfil de Usuario</button>
+                <button type="button" class="letra botonDiseno"><i class="fas fa-folder-open"></i> Mis Archivos </button>
+                <button type="button" class="letra botonDiseno"><i class="fas fa-user-friends"></i> Compartidos </button>
+                <button type="button" class="letra botonDiseno" data-toggle="modal" data-target="#planes"><i class="fas fa-dollar-sign"></i> Planes</button>
+                <hr>
+                <a href="editor.html" class="letra nounderline color"><p><span> <i class="fas fa-laptop"></i> Nuevo Proyecto</span></p></a>
+           </div>  
+    </div> 
+    </div>  
+    <!-------------------------------------------- fin de barra lateral izquierda ---------------------------------------------------------------------------------------------------------------------------------------->
+    <!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+
+    <!------------------------------------------- Marco central/ tarjeta de los iconos ------------------------------------------------------------------------------------------------------------------------------------>
+    <!--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+    <div class="col-lg-10 col-md-9 col-xs-2  " >
+        <div id="principal" style="margin-left:5%" >
+            <div class="container">
+                <div class="row"> 
+                <div class="col-xs-6"> 
+                    <h3 class="arriba">Archivos y Carpetas</h3>
+                </div>
+    <!---------------------------------------------------------- boton aculto---------------------------------------------------------------------------------------------------------------------------------------------->
+    <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+                    <div style="display:none" id="oculto" class="col-xs-6">
+                         <div class="dropdown">
+                            <button class="dropbtn form-control"><i class="fas fa-bars"></i></button>
+                            <div class="dropdown-content" style="right:0;">
+                                <div class="container" style="    margin-top: 5px;">
+                                    <a href="#" class="letra nounderline"  data-toggle="modal" data-target="#exampleModal"><p><span> <i class="fas fa-user"></i> Perfil </span></p></a>
+                                    <a href="#" class="letra nounderline"><p><span> <i class="fas fa-folder-open"></i> Archivos</span></p></a> 
+                                    <a href="#" class="letra nounderline"><p><span> <i class="fas fa-user-friends"></i> Compartidos</span></p></a>
+                                    <a href="#" class="letra nounderline"><p><span> <i class="fas fa-laptop"></i> Crear Proyecto</span></p></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>      
+
+    <!------------------------------------------------------------ termina boton oculto ------------------------------------------------------------------------------------------------------------------------------------->
+    <!-- ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+                <hr>
+    <!---------------------------------------------------------- Tarjeta donde va la carpeta ---------------------------------------------------------------------------------------------------------------------------------->
+    <!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ -->
+                <div class="row" id="tarjetas">
+                </div>       
+    <!------------------------------------------------------ hasta aqui termina el div de las carpeta ------------------------------------------------------------------------------------------------------------------------>
+    <!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->            
+            </div>
+            </div> 
+        </div>   
+    </div>
+</div>    
+</div>
+<!-- -------------------------------------------------------Modal1------------------------------------------------------ -->
+<!-- ------------------------------------------------------------------------------------------------------------------ -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Mi Perfil</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+         <div>
+            <img src="img/usuario.png" alt="" class="imgRedonda">
+         </div>
+         <hr>
+         <div class="row">
+           <div class="col-lg-6">
+              <h6 class="separacion">Nombre: </h6>
+              <h6 class="separacion">Nombre Usuario: </h6>
+              <h6 class="separacion"> Correo: </h6>
+              <h6 class="separacion"> Contraseña:</h6>
+           </div>
+           <div class="col-lg-6">
+              <h6 class="separacion">Ana Iris Padilla </h6>
+              <h6 class="separacion">@AnaPadilla </h6>
+              <h6 class="separacion">anairispadilla38@gmail.com</h6>
+              <h6 class="separacion">*********</h6>
+            </div>
+         </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ <!-- -------------------------------------------------------Modal2------------------------------------------------------ -->
+<!-- ------------------------------------------------------------------------------------------------------------------ -->
+<div class="modal fade" id="planes" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Planes</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="row">
+                <div class="col-lg-12">
+                    <img src="img/usuario.png" alt="" class="imgRedonda1">
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. </p>
+                </div>
+              </div>   
+            </div>
+            <div class="col-lg-4">
+                <div class="row">
+                  <div class="col-lg-12">
+                      <img src="img/usuario.png" alt="" class="imgRedonda1">
+                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. </p>
+                  </div>
+                </div>   
+              </div>
+              <div class="col-lg-4">
+                  <div class="row">
+                    <div class="col-lg-12">
+                        <img src="img/usuario.png" alt="" class="imgRedonda1">
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                    </div>
+                  </div>   
+                </div>
+          </div>
+         </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div> 
+<!-------------------------------------------Menu Contextual----------------------------------------------------------------- -->
+<!-- -------------------------------------------------------------------------------------------------------------------- -->
+ 
+<ul id="menuCapa" class="dropdown-menu menu" role="menu" aria-labelledby="dropdownMenu1">            
+    <li role="presentation">
+      <a role="menuitem" tabindex="-1" href="#" id="nuevaCarpeta"  class="letra"> <i class="fas fa-folder-open"></i> Nueva Carpeta</a>
+        <div class="row" id="nombreCarpeta" style="display:none">
+          <input type="text" class="form-control inputOculto" placeholder="Nombre">
+          <button><i class="far fa-save iconos"></i></button>
+      </div>
+      
+    </li>
+    <li role="presentation">
+      <a role="menuitem" tabindex="-1" href="#" id="nuevoArchivo" class="letra"><i class="fas fa-file"></i> Nuevo Archivo</a>
+      <div class="row" id="nombreArchivo" style="display:none">
+        <input type="text" class="form-control inputOculto" placeholder="Nombre">
+        <button><i class="far fa-save iconos"></i></button>
+    </div>
+      
+    </li>
+    <hr>       
+    <li role="presentation">
+      <a role="menuitem" tabindex="-1" href="editor.html" class="letra"><i class="fas fa-laptop"></i>Nuevo Proyecto </a>
+    </li>
+  </ul>
+<!-- --------------------------------------------------------------------------------------------------------------------- -->
+
+<script src="js/jquery-3.3.1.min.js"> </script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/controlador_ordenador.js" ></script> 
+</body>
+</html>
