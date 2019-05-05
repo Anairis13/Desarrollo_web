@@ -78,7 +78,9 @@ $("#principal").mousedown(function(e) {
         limpiar();
         
     }
+    
 });
+
 
 $("#actFoto").click(function(){
     $("#foto").css("display","block");
@@ -147,16 +149,7 @@ function agregarProyectos(){
     })
 }
 
-$("#btn-proyectos").click( function(){
-    $.ajax({
-        url:"proyecto.html",
-        datatype:"html",
-        success: function(data){
-            $("#principal").html(data);
-        }
-    })
-  
-});
+
 var cantidad=[];
 $("#btn-guardarPc").click( function(){
     // console.log($("#txt-proyecto").val());
@@ -206,7 +199,7 @@ $("#btn-guardarPc").click( function(){
 
                         }                                   
                         else{
-                            Push.create("Alerta", {
+                                Push.create("Alerta", {
                                 body: "Lo sentimos su numero de proyectos ha sido limitado, pasate a Premiun",
                                 // icon: '../img/logoV10_fondo_transparente.png',
                                 timeout: 4000,
@@ -756,22 +749,22 @@ function divCarpeta(res){
     // idCompartir = res._id;
     document.getElementById('raiz').innerHTML+=
     ` 
-    <div class="col-lg-2 col-sm-4 col-xs-6 cuadro" id="${res._id}">
-                    <div class="col-lg-3 Dinamico">
+    <div class="col-lg-2 col-md-4 col-sm-6 cuadro" id="${res._id}">
+                    <div class="col-lg-1 Dinamico">
                         <div class="dropdown1" >
                             <button class="dropbtn1 form-control botonDinamico" ><i class="fas fa-ellipsis-v"></i></i></button>
                             <div class="dropdown-content1">
                                 <div class="container">
                                     <a href="#" class="letra nounderline" onclick="abrirCarpeta('${res._id}')" ><p><span> <i class="fas fa-folder-plus"></i> Abrir</span></p></a> 
                                     <a href="#" class="letra nounderline" data-toggle="modal" data-target="#myModal" onclick="compartir('${res._id}')" ><p><i class="fas fa-user-friends"></i> Compartir</span></p></a>
-                                    <a href="#" class="letra nounderline"><p><span> <i class="fas fa-edit"></i> Actualizar</span></p></a>
+                                    <a href="#" class="letra nounderline" data-toggle="modal" data-target="#myModal2" onclick="actualizarCarpeta('${res._id}')"><p><span> <i class="fas fa-edit" ></i> Actualizar</span></p></a>
                                     <a href="#" class="letra nounderline" onclick="buscarEliminar('${res._id}')"><p><i class="far fa-trash-alt"></i></span> Eliminar</span></p></a>
 
                                 </div>
                             </div>
                         </div> 
                         </div>
-                    <div class="col-lg-11">                                      
+                    <div class="col-lg-11 col-md-11 col-sm-11">                                      
                         <img src="img/C_W.png" id="archivo">
                     </div>                                   
                     <div class="col-lg-12 nombre" >
@@ -793,7 +786,7 @@ function divArchivos(res){
                     <div class="container">
                         <a href="javascript:pasarVariables('editor.html', '${res._id}')" class="letra nounderline"  ><p><span> <i class="fas fa-folder-plus"></i> Abrir</span></p></a>
                         <a href="#" class="letra nounderline" data-toggle="modal" data-target="#myModal" onclick="compartir('${res._id}')"><p><i class="fas fa-user-friends"></i> Compartir</span></p></a>
-                        <a href="#" class="letra nounderline"><p><span> <i class="fas fa-edit"></i> Actualizar</span></p></a>
+                        <a href="#" class="letra nounderline" data-toggle="modal" data-target="#myModal2" onclick="actualizarArchivos(${res.__id})"><p><span> <i class="fas fa-edit"></i> Actualizar</span></p></a>
                         <a href="#" class="letra nounderline" onclick="eliminarArc('${res._id}')"><p><i class="far fa-trash-alt"></i></span> Eliminar</span></p></a>
 
                     </div>
@@ -812,14 +805,14 @@ var idProyecto=0;
 function divProyecto(res){
      var idProyecto =res._id;
     $("#raiz").append(`
-            <div class="col-lg-2 col-sm-4 col-xs-6 cuadro" id="${res._id}">
+            <div class="col-lg-2 col-md-4 col-sm-6 cuadro" id="${res._id}">
                                 <div class="col-lg-3 Dinamico">
                                     <div class="dropdown1" >
                                         <button class="dropbtn1 form-control botonDinamico" ><i class="fas fa-ellipsis-v"></i></i></button>
                                         <div class="dropdown-content1">
                                             <div class="container">
                                                 <a href="javascript:pasarVariables('editor.html', '${res._id}')" class="letra nounderline"  ><p><span> <i class="fas fa-folder-plus"></i> Abrir</span></p></a> 
-                                                <a href="#" class="letra nounderline"><p><span> <i class="fas fa-edit"></i> Actualizar</span></p></a>
+                                                <a href="#" class="letra nounderline" data-toggle="modal" data-target="#myModal2" onclick="actualizarProyecto(${res.__id})"><p><span> <i class="fas fa-edit"></i> Actualizar</span></p></a>
                                                 <a href="#" class="letra nounderline" onclick="eliminarProyecto('${res._id}')"><p><i class="far fa-trash-alt"></i></span> Eliminar</span></p></a>
             
                                             </div>
@@ -930,6 +923,15 @@ function compartirCarpeta(idUserCompartir,idCompartir){
         success: function(res){
             // console.log(res);
             console.log("compartido carpeta");
+            Push.create("Afirmacion", {
+                body: "Carpeta Compartida con exito",
+                // icon: '../img/logoV10_fondo_transparente.png',
+                timeout: 4000,
+                onClick: function () {
+                    window.focus();
+                    this.close();
+                }
+            });
         },
         error: function(res){
             // console.log(res);
@@ -945,6 +947,15 @@ function compartirArchivos(idUserCompartir,idCompartir){
         success: function(res){
             // console.log(res);
             console.log("compartido archivo");
+            Push.create("Afirmacion", {
+                body: "Archivo compartido",
+                // icon: '../img/logoV10_fondo_transparente.png',
+                timeout: 4000,
+                onClick: function () {
+                    window.focus();
+                    this.close();
+                }
+            });
         },
         error: function(res){
             // console.log(res);
@@ -1003,22 +1014,6 @@ $("#compartidos").click(function(){
     })
  }
 
- $("#gbFoto").click(function(){    
-     console.log("imagen");
-    var data = "&creador="+idUsuario;
-    
-    $.ajax({
-        url:"/imagenes/imagenes",
-        method:"Post",
-        datatype:"json",
-        data:data,
-        success:function(res){
-           console.log("bien");
-        },error: function(error){
-            console.log("error")+ error;
-        }
-    })
-});
 
 $("#cerrar").click(function(){
     $.ajax({
@@ -1032,8 +1027,47 @@ $("#cerrar").click(function(){
     })
 })
 
-// indexdb
+var idActualizar=0;
+function actualizarCarpeta(id){
+    idActualizar= id;
+}
+$("#btn-actualizar").click(function(){    
+    console.log(idActualizar);
+    var nombre = $("#txt-actualizar").val();
+    console.log(idUsuario);
+    console.log(nombre)
+    var contenido= "&nombre="+ nombre + "&carpetaPadre="+ idCarpeta+ "&usuarioCreador="+ idUsuario ;
+    $.ajax({
+        method:"PUT",
+        url:"/carpetas/"+ idActualizar,        
+        data:contenido,
+        datatype:"json",        
+        success:function(res){
+            console.log("Actualizado");
+            
+            $.ajax({
+                url:"/carpetas/"+ idActualizar,
+                method:"get",
+                datatype:"json",        
+                success:function(res){
+                    $("#"+ idActualizar).remove();
+                    console.log(res[0]);
+                    divCarpeta(res[0]);
+                    console.log(res[0]._id)
+                    
+                },
+                error:function(error){
+                    console.log(error);
+                }
+            })
+            
+        },
+        error:function(error){
+            console.log(error);
+        }
+    })
 
+})
 
 
 

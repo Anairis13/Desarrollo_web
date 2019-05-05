@@ -1,5 +1,5 @@
 $("#btn-registrar").click(function(){
-    
+    var correo= $("#correo").val();
     var campos= [
         {campo:"nombre", value: false},
         {campo :"apellido", value: false},
@@ -17,24 +17,55 @@ $("#btn-registrar").click(function(){
          return;          
          
      }
+    
      
-        var plan= "gratis";
-        var parametros = $("#formulario").serialize();      
-        console.log(parametros);
-        $.ajax({
-            url:"/usuarios/singup",
-                method:"post",
-                data: parametros+ "&tipoPlan="+ plan,
-                dataType: "json",
-                success: function(res){
-                    limpiarFormulario();
-                    window.location = 'login.html';
-                    console.log("registro guardado")
-                },
-                error: function(error){
-                    console.log(error);
-                } 
-        });
+    $.ajax({
+        url:"/usuarios",
+        method:"get",
+        datatype:"json",
+        success:function(res){
+            for (let i = 0; i < res.length; i++) {
+                if(res[i].correo==correo){
+                  
+                    Push.create("Alerta", {
+                        body: "los sentimos este correo ya existe",
+                        // icon: '../img/logoV10_fondo_transparente.png',
+                        timeout: 4000,
+                        onClick: function () {
+                            window.focus();
+                            this.close();
+                        }
+                    });
+                    document.getElementById(correo).classList.add('input-error');
+                    return;                  
+                }                
+            }
+            var plan= "gratis";
+            var parametros = $("#formulario").serialize();      
+            console.log(parametros);
+            $.ajax({
+                url:"/usuarios/singup",
+                    method:"post",
+                    data: parametros+ "&tipoPlan="+ plan,
+                    dataType: "json",
+                    success: function(res){
+                        limpiarFormulario();
+                        window.location = 'login.html';
+                        console.log("registro guardado")
+                    },
+                    error: function(error){
+                        console.log(error);
+                    } 
+            });
+
+        }
+    })
+
+
+
+
+     
+      
 
 });
 
@@ -54,5 +85,13 @@ function validarCampos(campo){
 
 function limpiarFormulario(){
     document.getElementById("formulario").reset();
+
+}
+function validarCorreo(etiquetaCorreo){
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (re.test(etiquetaCorreo.value))
+        etiquetaCorreo.classList.remove('input-error');
+    else
+        etiquetaCorreo.classList.add('input-error');
 
 }

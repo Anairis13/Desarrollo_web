@@ -185,7 +185,7 @@ text-decoration:none;
 .arriba{
     margin-top: 3%;
 }
-@media only screen and (max-width: 	768px) {
+@media only screen and (max-width: 	540px) {
     #barra_izquierda{
        display: none;
     }
@@ -238,7 +238,7 @@ text-decoration:none;
 
 
 
-@media only screen and (min-width: 	500px) {
+@media only screen and (min-width: 	540px) {
    
     .dropdown1 {
         position: relative;
@@ -333,10 +333,16 @@ text-decoration:none;
     margin-left: 10px;
 
 }
+.boton{
+    outline: none;
+    color: #F95534;
+    background-color: #fff0;
+    border: #ffffff03;
+}
 .imgRedonda {
-    width:150px;
+    width:200px;
     height:150px;
-    border-radius:150px;
+    /* border-radius:150px; */
     margin:10px auto;
 	display:block;
 }

@@ -1,4 +1,4 @@
-
+// var valor=false;
 function update(){
     var res =document.getElementById('iframe').contentWindow.document;
 
@@ -38,6 +38,15 @@ var db;
 $(document).ready(function(){
     verificarArchivos();
     obtenerSesion();
+    $("#des-html").append(
+        `<a href="" download="Archivos Html" id="descargar" ><i class="fas fa-download"></i></a>`
+    )
+    $("#des-css").append(
+        `<a href="" download="Archivos css" id="descargar1" ><i class="fas fa-download"></i></a>`
+    )
+    $("#des-js").append(
+        `<a href="" download="Archivos js" id="descargar2" ><i class="fas fa-download"></i></a>`
+    )
     if (!('indexedDB' in window)){
         console.err("El navegador no soporta indexedDB");
         return;
@@ -157,12 +166,8 @@ $("#btn-guardar").click(function(){
     archivos.push(arhJs);
     extenciones.push(3);
    }
-   console.log("archivos vacios");
-      
-   
-   
-//    console.log(archivos);
- 
+
+  
    var data="";
    for (var i = 0; i < archivos.length; i++) {
        data = "&codigoProyecto="+codProyecto + "&extencion="+ extenciones[i] + "&contenido=" + archivos[i]+"&usarioCreador="+ idUsuario;
@@ -187,11 +192,10 @@ $("#btn-guardar").click(function(){
            })
        
    }
-
+   
 })
 
 
-function obtenerSesion(){
    function obtenerSesion() {
     $.ajax({
         url:"/obtener-sesion",
@@ -220,7 +224,7 @@ function obtenerSesion(){
 
     })
 }
-}
+
 
 
 // indexed db para guardar oftline los proyectos y usuarios.
@@ -314,5 +318,150 @@ function agregarArchivos(){
 }
 
 
+$("#guardarArchivo").click(function(){
+    console.log("hola");
+    var extencion= 0;
+    var imagen= "";
+    var data= "&nombre="+$("#txt-nombre").val();
+    var campo = $("#txt-nombre").val();
+    if($("#txt-nombre").val() !==""){
+        var partes= campo.split(".");
+        parte = partes[1].toLowerCase();
 
+        if (parte=="html") {
+            extencion=1;
+            imagen = '../img/img-html.jpg';
+
+        }else if(parte=="css"){
+            extencion=2;
+            imagen = '../img/imgCss.png';
+        }else if(parte=="js"){
+            extencion=3;
+            imagen = '../img/js.png';
+        }else{
+            return;
+        }
+        $.ajax({
+            url:"/archivos",
+            method: "Post",
+            data: data +"&extencion="+extencion+"&imagen="+imagen+ "&usuarioCreador="+ idUsuario, 
+            dataType:"json",               
+            success: function(res){
+                Push.create("Afirmacion", {
+                    body: "Archivo Guardado!",
+                    // icon: '../img/logoV10_fondo_transparente.png',
+                    timeout: 4000,
+                    onClick: function () {
+                        window.focus();
+                        this.close();
+                    }
+                });
+                console.log("registro Guardado");
+            },
+            error: function(res){
+                console.log(res);
+                
+            }
+        })
+    }
+});
+
+var cantidad=[];
+$("#btn-guardarPc").click( function(){
+    valor=true;
+    $.ajax({
+        url:"/proyectos",
+        method:"get",
+        datatype:"json",
+        success:function(res){
+            for (let i = 0; i < res.length; i++) {
+                if(res[i].usuarioCreador==idUsuario){
+                    cantidad.push(res[i]._id);
+                }
+                
+            }
+        }
+    })
+    var data= "&nombre="+ $("#txt-proyecto").val()+ "&usuarioCreador="+ idUsuario;
+    
+   
+    $.ajax({
+        url:"/usuarios",
+        method:"get",
+        datatype:"json",
+        success: function(res){
+           
+            // console.log(res)
+            for (let i = 0; i < res.length; i++) {
+                if((res[i]._id==idUsuario)){
+                    if((res[i].tipoPlan=="gratis")){
+                        if((cantidad.length<2)){
+                                $.ajax({
+                                    url:"/proyectos",
+                                    method:"Post",
+                                    datatype:"Json",
+                                    data: data,
+                                    success: function(res){              
+                                        Push.create("Afirmacion", {
+                                            body: "Proyecto Guardado",
+                                            timeout: 4000,
+                                            onClick: function () {
+                                                window.focus();
+                                                this.close();
+                                            }
+                                        });
+                                    },
+                                    error:function(error){
+                                        console.error(error)
+                                    }
+                                }) 
+
+                        }                                   
+                        else{
+                            console.log("sin guarad")
+                            Push.create("Alerta", {
+                                body: "Lo sentimos su numero de proyectos ha sido limitado, pasate a Premiun",
+                                // icon: '../img/logoV10_fondo_transparente.png',
+                                timeout: 4000,
+                                onClick: function () {
+                                    window.focus();
+                                    this.close();
+                                }
+                            });
+                            console.log("ya no puedes guardar"); 
+                        }
+
+                    }else if(res[i].tipoPlan=="premiun"){
+                        $.ajax({
+                            url:"/proyectos",
+                            method:"Post",
+                            datatype:"Json",
+                            data: data,
+                            success: function(res){              
+                                Push.create("Afirmacion", {
+                                    body: "Proyecto Guardado",
+                                    // icon: '../img/logoV10_fondo_transparente.png',
+                                    timeout: 4000,
+                                    onClick: function () {
+                                        window.focus();
+                                        this.close();
+                                    }
+                                });
+                            },
+                            error:function(error){
+                                console.error(error)
+                            }
+                        }) 
+
+                    }
+                    
+                }
+                
+            }
+             
+            
+        }
+    })
+    
+});
 

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" /> <!--Poder utilizar caracteres especiales-->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Login</title>
+    <title>Registro</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link REL=StyleSheet HREF="css/estilo_registro.css" TYPE="text/css" MEDIA=screen>
     <link REL=StyleSheet HREF="css/bootstrap.css" TYPE="text/css" MEDIA=screen> 
@@ -38,7 +38,7 @@
                 <form id="formulario">   
                     <input type="text" name="nombre" id="nombre" placeholder="Ingrese su nombre" class="detalles form-control">
                     <input type="text" name="apellido" id="apellido" placeholder="Ingrese su apellido" class="detalles form-control">
-                    <input type="email" name="correo" id="correo" placeholder="Ingrese su correo" class="detalles form-control" >
+                    <input type="text" name="correo" id="correo" placeholder="Ingrese su correo" class="detalles form-control" onkeyup="validarCorreo(this)" >
                     <input type="password" name="contrasena" id="contrasena" placeholder="Contraseña" class="detalles form-control">
                     <i class="fas fa-exclamation-triangle" id="advertencia" style="display:none">verifique campos vacios </i>
                 </form> 
@@ -65,6 +65,7 @@
 
 <script src="js/jquery-3.3.1.min.js"> </script>
 <script src="js/bootstrap.min.js"></script>
+<script src="js/push.min.js"></script>
 <script src="js/controlador-registro.js" ></script> 
      
 </body>

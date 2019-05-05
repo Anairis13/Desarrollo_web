@@ -61,8 +61,8 @@ router.post('/', function(req, res){
 
 });
 router.put('/:id', function(req, res){
-    carpeta.update({
-        _id:req.params.id},{
+    carpeta.update(
+        {_id:req.params.id},{
         nombre:req.body.nombre,
         usuarioCreador:req.body.usuarioCreador,
         carpetaPadre:req.body.carpetaPadre

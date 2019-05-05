@@ -25,9 +25,9 @@
          <div class="dropdown-content" style="right:0;">
              <div class="container" >
                  <a href="#" class="letra nounderline"  data-toggle="modal" data-target="#exampleModal"><p><span> <i class="fas fa-user"></i> Perfil </span></p></a>
-                 <a href="#" class="letra nounderline"><p><span> <i class="fas fa-folder-open"></i> Archivos</span></p></a> 
-                 <a href="#" class="letra nounderline"><p><span> <i class="fas fa-user-friends"></i> Compartidos</span></p></a>
-                 <a href="#" class="letra nounderline"><p><span> <i class="fas fa-laptop"></i> Crear Proyecto</span></p></a>
+                 <a href="ordenador.html" class="letra nounderline"><p><span> <i class="fas fa-folder-open"></i> Archivos</span></p></a> 
+                 <a href="#" class="letra nounderline" data-toggle="modal" data-target="#planes"><p><span> <i class="fas fa-user-friends"></i> Compartidos</span></p></a>
+                 <a href="editor.html" class="letra nounderline"><p><span> <i class="fas fa-laptop"></i> Crear Proyecto</span></p></a>
              </div>
          </div>
      </div>
@@ -43,15 +43,18 @@
 <div class="row ">
       <div class="col-lg-2 col-md-3 col-xs-4"> 
         <div id="barra_izquierda">
+          
 
             <div class="container posicion" style="margin-top:45px">
                 <button type="button" class="letra botonDiseno" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-user"></i> Perfil de Usuario</button>
                 <a href="ordenador.html"><button type="button" id="btn-archivos" class="letra botonDiseno"><i class="fas fa-folder-open"></i> Mis Archivos </button></a>
                 <!-- <button type="button" id="btn-proyectos" class="letra botonDiseno"><i class="fas fa-code"></i> Mis proyectos </button> -->
                 <button type="button" id="compartidos" class="letra botonDiseno"><i class="fas fa-user-friends"></i> Compartidos </button>
-                <hr>
                 <button type="button" class="letra botonDiseno" data-toggle="modal" data-target="#planes"><i class="fas fa-dollar-sign"></i> Planes</button>
-           </div>
+                <hr>
+                <a href="editor.html" class="letra nounderline color"><p><span> <i class="fas fa-laptop"></i> Nuevo Proyecto</span></p></a>
+              </div>
+
            <div id="imagen1">
              <img src="../img/b1.jpg" >
            </div>  
@@ -116,15 +119,11 @@
         </div>
         <div class="modal-body">
             <div>            
-            <img src="img/usuario.png" alt="" class="imgRedonda">
-            <a id="actFoto"><i class="fas fa-edit" style="float:right; margin-top: -20px;"></i></a>
+            <img src="img/logoV10_fondo _transparente.png" alt="" class="imgRedonda">
             
             <form id="foto" method="post" action="/imagenes/imagenes" enctype="multipart/form-data" style="display:none">        
               <input  type="file" name="archivo" accept=".jpg, .jpeg, .png"/>
             </form>
-            <div id="guardarFoto" style="display:none">
-                <button type="submit" id="gbFoto"><i class="far fa-save" style="float:right; margin-top: -20px"></i></button>
-            </div>
           
          </div>
          
@@ -210,14 +209,14 @@
       <a role="menuitem" tabindex="-1" href="#" id="nuevaCarpeta"  class="letra"> <i class="fas fa-folder-open"></i> Nueva Carpeta</a>      
       <div class="row" id="nombreCarpeta" style="display:none">
           <input type="text" id="txt-Carpeta" class="inputOculto " placeholder="Nombre">
-          <button id="btn-guardarCar"><i class="far fa-save iconos"></i></button>                
+          <button id="btn-guardarCar" class="boton"><i class="far fa-save iconos"></i></button>                
         </div>
     </li>
     <li role="presentation">
       <a role="menuitem" tabindex="-1" href="#" id="nuevoArchivo" class="letra"><i class="fas fa-file"></i> Nuevo Archivo</a>
       <div class="row" id="nombreArchivo" style="display:none">
         <input type="text" id="txt-nombre" class="inputOculto" placeholder="Nombre">
-        <button id="btn-guardarArc"><i class="far fa-save iconos"></i></button>
+        <button id="btn-guardarArc" class="boton"><i class="far fa-save iconos"></i></button>
     </div>     
     </li>
     <hr>        
@@ -225,7 +224,7 @@
       <a role="menuitem" tabindex="-1" href="#" id="nuevoProyecto" class="letra"><i class="fas fa-laptop"></i>Nuevo Proyecto </a>
       <div class="row" id="nombreProyecto" style="display:none">
           <input type="text" id="txt-proyecto" class="inputOculto" placeholder="Nombre">
-          <button id="btn-guardarPc"><i class="far fa-save iconos"></i></button>
+          <button id="btn-guardarPc" class="boton"><i class="far fa-save iconos"></i></button>
       </div>
     </li>
   </ul>
@@ -257,6 +256,29 @@
 
   </div>
 </div>
+<!-- --------------------------------------------------------------------------------------------------------- -->
+<!--------------------------------------------------------------------------------------------------------------->
+<div id="myModal2" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Cambiar Nombre</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+         </div>
+      <div class="modal-body">
+        <input type="text" class="form-control" id="txt-actualizar" placeholder="Nombre">
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-default" id="btn-actualizar">Actualizar</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
 <script src="js/jquery-3.3.1.min.js"> </script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/push.min.js"></script>
