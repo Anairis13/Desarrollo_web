@@ -1,0 +1,15 @@
+Pasos poner en practica a Emilia
+
+1. Levantar el servidor del FrontEnd nada mas,
+2. Los servicios de mongo
+    2.1 Abrir y ejecutar el archivo de estructura.js ali contiene el nombre de la base y sus respectivas colecciones 
+    2.2 ABrir y ejecutar la informacion de prueba que esta en informacion.
+3. Navegador en elpuerto 3333
+4. Resgistrar un nuevo Usuario (campos totalmente llenos)
+ al registras nuevos usuarios correo diferentes, si no existe la coleccion usuario al guardar un nuevo registro se crea
+5. Logiarse
+6. en el ordenador indicaciones con Click Derecho.
+
+
+
+gracias por su visita!!

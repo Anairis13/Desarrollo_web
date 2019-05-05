@@ -17,7 +17,9 @@ $("#btn-registrar").click(function(){
          return;          
          
      }
-    
+    var plan= "gratis";
+    var parametros = $("#formulario").serialize()+ "&tipoPlan=" + plan  ;      
+    console.log(parametros);
      
     $.ajax({
         url:"/usuarios",
@@ -40,13 +42,11 @@ $("#btn-registrar").click(function(){
                     return;                  
                 }                
             }
-            var plan= "gratis";
-            var parametros = $("#formulario").serialize();      
-            console.log(parametros);
+           
             $.ajax({
                 url:"/usuarios/singup",
                     method:"post",
-                    data: parametros+ "&tipoPlan="+ plan,
+                    data: parametros,
                     dataType: "json",
                     success: function(res){
                         limpiarFormulario();

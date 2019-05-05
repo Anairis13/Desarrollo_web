@@ -24,12 +24,12 @@ function obtenerSesion() {
                         for (var i = 0; i < respuesta.length; i++) {
                             if (res.correo==respuesta[i].correo) {
                                idUsuario= respuesta[i]._id;
-                               
+                               agregarProyectos();
                                perfil();
                                agregarArchivos();
                                agregarCarpeta();
                                usuarios();
-                               agregarProyectos();  
+                                 
                         
                             }
                             
@@ -147,7 +147,7 @@ function agregarProyectos(){
             }
         }
     })
-}
+};
 
 
 var cantidad=[];
@@ -166,7 +166,6 @@ $("#btn-guardarPc").click( function(){
             }
         }
     })
-    // console.log(cantidad.length);
     if (!(idCarpeta==0)){
     var data= "&nombre="+ $("#txt-proyecto").val()+ "&usuarioCreador="+ idUsuario+ "&carpetaPadre="+ idCarpeta;
     $.ajax({
@@ -176,10 +175,15 @@ $("#btn-guardarPc").click( function(){
         success: function(res){
             // console.log(res);
             for (let i = 0; i < res.length; i++) {
+                
                 if((res[i]._id==idUsuario)){
+                   
+                    // console.log("plan gratis cambialo!" + idUsuario);
                     if((res[i].tipoPlan=="gratis")){
-                        if((cantidad.length<2)){
-                            // console.log("plan gratis cambialo!" + idUsuario);
+                        
+
+                        if(cantidad.length<2){
+                            console.log("plan gratis cambialo!" + idUsuario);
                             // cantidad.push(res[i]._id);
                                 $.ajax({
                                     url:"/proyectos",
@@ -247,8 +251,11 @@ $("#btn-guardarPc").click( function(){
                 // console.log(res);
                 for (let i = 0; i < res.length; i++) {
                     if((res[i]._id==idUsuario)){
+                        console.log(res[i].id);
+                                console.log(idUsuario);
                         if((res[i].tipoPlan=="gratis")){
-                            if((cantidad.length<2)){
+                            if((cantidad.length<1)){
+                                
                                 // console.log("plan gratis cambialo!" + idUsuario);
                                 // cantidad.push(res[i]._id);
                                     $.ajax({
@@ -306,6 +313,7 @@ $("#btn-guardarPc").click( function(){
       
     }
 });
+
 function agregarCarpeta(){
     $.ajax({
         url:"/carpetas",
@@ -400,7 +408,7 @@ $("#btn-aceptar").click(function(){
 var data= "&numeroCuenta="+ numeroCuenta + "&codigoCV=" + cv + "&tipoPlan="+plan;
      
 $.ajax({
-    url:"/usuarios/"+ idUsuario,
+    url:"/usuarios/plan/"+ idUsuario,
     method:"put",
     data: data,
     datatype:"json",
@@ -749,7 +757,7 @@ function divCarpeta(res){
     // idCompartir = res._id;
     document.getElementById('raiz').innerHTML+=
     ` 
-    <div class="col-lg-2 col-md-4 col-sm-6 cuadro" id="${res._id}">
+    <div class="col-lg-2 col-sm-4 col-xs-6 cuadro" id="${res._id}">
                     <div class="col-lg-1 Dinamico">
                         <div class="dropdown1" >
                             <button class="dropbtn1 form-control botonDinamico" ><i class="fas fa-ellipsis-v"></i></i></button>
@@ -803,6 +811,7 @@ function divArchivos(res){
 }
 var idProyecto=0;
 function divProyecto(res){
+
      var idProyecto =res._id;
     $("#raiz").append(`
             <div class="col-lg-2 col-md-4 col-sm-6 cuadro" id="${res._id}">
@@ -982,11 +991,11 @@ $("#compartidos").click(function(){
         url:"/usuarios/"+ idUsuario +"/cmpCarpetas",
         method: "get",
         datatype: "json",
-        success: function(res){
-            
+        success: function(res){            
             for (var i = 0; i < res[0].compartidos.length; i++) {
-                divCarpeta(res[0].compartidos[i]);
+                divCarpeta2(res[0].compartidos[i]);
                 
+                console.log(res[0].compartidos[i])
             }
             console.log(res[0].compartidos);
         },
@@ -1068,9 +1077,99 @@ $("#btn-actualizar").click(function(){
     })
 
 })
+function abrirCarpeta2(id) {
+    idCarpeta=0;
+    idCarpeta= id;    
+    ruta.push(id)
+    document.getElementById('raiz').innerHTML="";
+    $.ajax({
+        url:"/carpetas",
+        method: "Get",
+        dataType:"Json",
+        success: function(res){           
+            for (var i = 0; i < res.length; i++) {
+                // if(res[i].usuarioCreador==idUsuario){
+                    if(res[i]._id==id){
+                        document.getElementById("ruta").innerHTML+=
+                        `<span id="${res[i].fecha}">${res[i].nombre}/</span>
+                        `; 
+                        // ruta.push(res[i]);
+                    }
+                    if (res[i].carpetaPadre == idCarpeta) {                
+                    divCarpeta(res[i]);
+                    }
+                // }
+            }
+        },
+        error:function(res){
+            console.log(res)
+        } 
+    })
+    $.ajax({
+        url:"/archivos",
+        method: "Get",
+        dataType:"Json",
+        success: function(res){           
+            for (var i = 0; i < res.length; i++) {
+                // if(res[i].usuarioCreador==idUsuario){
+                    if (res[i].carpetaPadre == idCarpeta) {                
+                    divArchivos(res[i]);
+                    }
+            // }
+            }
+        },
+        error:function(res){
+            console.log(res)
+        } 
+    })
+    $.ajax({
+        url:"/proyectos",
+        method: "Get",
+        dataType:"Json",
+        success: function(res){           
+            for (var i = 0; i < res.length; i++) {
+                // if(res[i].usuarioCreador==idUsuario){
+                    if (res[i].carpetaPadre == idCarpeta) {                
+                    divProyecto(res[i]);
+                    }
+            // }
+            }
+        },
+        error:function(res){
+            console.log(res)
+        } 
+    })
+console.log(ruta);
+}
 
+function divCarpeta2(res){
+    // idCompartir = res._id;
+    document.getElementById('raiz').innerHTML+=
+    ` 
+    <div class="col-lg-2 col-sm-4 col-xs-6 cuadro" id="${res._id}">
+                    <div class="col-lg-1 Dinamico">
+                        <div class="dropdown1" >
+                            <button class="dropbtn1 form-control botonDinamico" ><i class="fas fa-ellipsis-v"></i></i></button>
+                            <div class="dropdown-content1">
+                                <div class="container">
+                                    <a href="#" class="letra nounderline" onclick="abrirCarpeta2('${res._id}')" ><p><span> <i class="fas fa-folder-plus"></i> Abrir</span></p></a> 
+                                    <a href="#" class="letra nounderline" data-toggle="modal" data-target="#myModal" onclick="compartir('${res._id}')" ><p><i class="fas fa-user-friends"></i> Compartir</span></p></a>
+                                    <a href="#" class="letra nounderline" data-toggle="modal" data-target="#myModal2" onclick="actualizarCarpeta('${res._id}')"><p><span> <i class="fas fa-edit" ></i> Actualizar</span></p></a>
+                                    <a href="#" class="letra nounderline" onclick="buscarEliminar('${res._id}')"><p><i class="far fa-trash-alt"></i></span> Eliminar</span></p></a>
 
-
+                                </div>
+                            </div>
+                        </div> 
+                        </div>
+                    <div class="col-lg-11 col-md-11 col-sm-11">                                      
+                        <img src="img/C_W.png" id="archivo">
+                    </div>                                   
+                    <div class="col-lg-12 nombre" >
+                        <span>${res.nombre}</span>
+                    </div>
+                </div>
+            </div> `;
+}
 
 
 

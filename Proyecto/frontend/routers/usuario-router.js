@@ -70,7 +70,7 @@ router.post('/singup', function(req, res){
 router.put("/:id", function(req,res){
     usuario.updateOne(
         {_id:req.params.id},
-        { 
+        {$set:{ 
             nombre:req.body.nombre,
             apellido:req.body.apellido,
             correo:req.body.correo,
@@ -79,9 +79,19 @@ router.put("/:id", function(req,res){
             codigoCv: req.body.codigoCv,
             numeroCuenta:req.body.numeroCuenta,
             carpetasCompartida:req.body.carpetasCompartida
-         })
+         }})
          .then(result=>{
              res.send(result);
+         })   
+         .catch(error=>{
+             res.send(error);
+         })
+
+});
+router.put("/plan/:id", function(req,res){
+    usuario.updateOne({_id:req.params.id},  {$set:{tipoPlan: req.body.tipoPlan, codigoCv: req.body.codigoCv, numeroCuenta:req.body.numeroCuenta}})
+         .then(result=>{
+             res.send(result);      
          })   
          .catch(error=>{
              res.send(error);
